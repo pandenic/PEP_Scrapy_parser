@@ -1,4 +1,4 @@
-# Scrapy parser app
+# Scrapy parser
 
 ## Description
 This application parses the PEP site using Scrapy spiders.
