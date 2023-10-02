@@ -9,7 +9,6 @@ To start parsing it should be written in the command line:
 ```scrapy crawl pep```
 
 # Technologies
-- Scrapy
+[<img src="https://github.com/pandenic/scrapy_parser_pep/assets/114985447/7c21603b-6e56-4454-b857-fb9dab22d132">](https://scrapy.org/)
 
-![image](https://github.com/pandenic/scrapy_parser_pep/assets/114985447/805679cc-7eab-4b16-8799-ad7c4f5ce17c)
 
