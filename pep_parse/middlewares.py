@@ -1,18 +1,23 @@
 """Define the models for spider middleware."""
-from scrapy import signals
+from typing import Iterable, Union
+
+from scrapy import Item, Request, Spider, signals
+from scrapy.crawler import Crawler
+from scrapy.http import Response
+from typing_extensions import Self
 
 
 class PepParseSpiderMiddleware:
     """Contains middlewares' description for PepParseSpider."""
 
     @classmethod
-    def from_crawler(cls, crawler):
+    def from_crawler(cls, crawler: Crawler) -> Self:
         """Create spiders."""
         s = cls()
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
 
-    def process_spider_input(self, response, spider):
+    def process_spider_input(self, response: Response, spider: Spider) -> None:
         """
         Contains actions for each response.
 
@@ -21,12 +26,19 @@ class PepParseSpiderMiddleware:
         """
         return None
 
-    def process_spider_output(self, response, result, spider):
+    def process_spider_output(
+        self,
+        response: Response,
+        result: Union[Iterable, Item],
+        spider: Spider,
+    ) -> Union[Iterable, Item]:
         """Proceed response the results from the Spider."""
         for i in result:
             yield i
 
-    def process_spider_exception(self, response, exception, spider):
+    def process_spider_exception(
+        self, response: Response, exception: Exception, spider: Spider,
+    ) -> None:
         """
         Define exception handling.
 
@@ -34,7 +46,9 @@ class PepParseSpiderMiddleware:
         """
         pass
 
-    def process_start_requests(self, start_requests, spider):
+    def process_start_requests(
+        self, start_requests: Iterable[Request], spider: Spider,
+    ) -> Iterable[Request]:
         """
         Proceed response the results from the Spider.
 
@@ -43,7 +57,7 @@ class PepParseSpiderMiddleware:
         for r in start_requests:
             yield r
 
-    def spider_opened(self, spider):
+    def spider_opened(self, spider: Spider) -> None:
         """Define action when spider is opened."""
         spider.logger.info("Spider opened: %s" % spider.name)
 
@@ -52,13 +66,13 @@ class PepParseDownloaderMiddleware:
     """Contains downloader middleware actions."""
 
     @classmethod
-    def from_crawler(cls, crawler):
+    def from_crawler(cls, crawler: Crawler) -> Self:
         """Create your spiders."""
         s = cls()
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
 
-    def process_request(self, request, spider):
+    def process_request(self, request: Request, spider: Spider) -> None:
         """
         Perform actions for requests.
 
@@ -66,7 +80,9 @@ class PepParseDownloaderMiddleware:
         """
         return None
 
-    def process_response(self, request, response, spider):
+    def process_response(
+        self, request: Request, response: Response, spider: Spider,
+    ) -> Response:
         """
         Perform actions when response returned.
 
@@ -74,7 +90,9 @@ class PepParseDownloaderMiddleware:
         """
         return response
 
-    def process_exception(self, request, exception, spider):
+    def process_exception(
+        self, request: Request, exception: Exception, spider: Spider,
+    ) -> None:
         """
         Define exception handling.
 
@@ -82,6 +100,6 @@ class PepParseDownloaderMiddleware:
         """
         pass
 
-    def spider_opened(self, spider):
+    def spider_opened(self, spider: Spider) -> None:
         """Define action when spider is opened."""
         spider.logger.info("Spider opened: %s" % spider.name)
