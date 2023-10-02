@@ -9,6 +9,4 @@ To start parsing it should be written in the command line:
 ```scrapy crawl pep```
 
 # Technologies
-[<img src="https://github.com/pandenic/scrapy_parser_pep/assets/114985447/7c21603b-6e56-4454-b857-fb9dab22d132">](https://scrapy.org/)
-
-
+[<img src="https://github.com/pandenic/scrapy_parser_pep/assets/114985447/a1762eea-3066-4245-a29e-17a4accf11c0">](https://scrapy.org/)
