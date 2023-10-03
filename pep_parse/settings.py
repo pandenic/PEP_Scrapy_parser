@@ -2,7 +2,7 @@
 import os.path
 from pathlib import Path
 
-from pep_parse.constants import BASE_DIR, PEP_LIST_FILENAME, RESULTS_DIR
+from pep_parse.constants import BASE_DIR, PEP_LIST_FILENAME, RESULTS_DIR, OUTPUT_FILE_FORMAT
 
 Path.joinpath(BASE_DIR, RESULTS_DIR).mkdir(exist_ok=True)
 
@@ -19,7 +19,7 @@ FEED_EXPORT_ENCODING = "utf-8"
 
 FEEDS = {
     os.path.join(RESULTS_DIR, PEP_LIST_FILENAME): {
-        "format": "csv",
+        "format": OUTPUT_FILE_FORMAT,
         "fields": ["number", "name", "status"],
         "overwrite": True,
     },

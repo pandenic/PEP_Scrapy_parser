@@ -5,6 +5,7 @@ from typing import Dict
 from scrapy import Item, Spider
 
 from pep_parse.constants import BASE_DIR, PEP_SUMMARY_RESULT_PATH
+from pep_parse.settings import FEED_EXPORT_ENCODING
 
 
 class PepParsePipeline:
@@ -31,7 +32,7 @@ class PepParsePipeline:
             PEP_SUMMARY_RESULT_PATH,
         )
 
-        with open(pep_summary_filepath, mode="w", encoding="utf-8") as file:
+        with open(pep_summary_filepath, mode="w", encoding=FEED_EXPORT_ENCODING) as file:
             file.write("Статус,Количество\n")
             file.writelines(
                 [

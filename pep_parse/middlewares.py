@@ -4,14 +4,13 @@ from typing import Iterable, Union
 from scrapy import Item, Request, Spider, signals
 from scrapy.crawler import Crawler
 from scrapy.http import Response
-from typing_extensions import Self
 
 
 class PepParseSpiderMiddleware:
     """Contains middlewares' description for PepParseSpider."""
 
     @classmethod
-    def from_crawler(cls, crawler: Crawler) -> Self:
+    def from_crawler(cls, crawler: Crawler) -> 'PepParseSpiderMiddleware':
         """Create spiders."""
         s = cls()
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
@@ -66,7 +65,7 @@ class PepParseDownloaderMiddleware:
     """Contains downloader middleware actions."""
 
     @classmethod
-    def from_crawler(cls, crawler: Crawler) -> Self:
+    def from_crawler(cls, crawler: Crawler) -> 'PepParseDownloaderMiddleware':
         """Create your spiders."""
         s = cls()
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
