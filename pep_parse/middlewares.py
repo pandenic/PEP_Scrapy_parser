@@ -36,7 +36,10 @@ class PepParseSpiderMiddleware:
             yield i
 
     def process_spider_exception(
-        self, response: Response, exception: Exception, spider: Spider,
+        self,
+        response: Response,
+        exception: Exception,
+        spider: Spider,
     ) -> None:
         """
         Define exception handling.
@@ -46,7 +49,9 @@ class PepParseSpiderMiddleware:
         pass
 
     def process_start_requests(
-        self, start_requests: Iterable[Request], spider: Spider,
+        self,
+        start_requests: Iterable[Request],
+        spider: Spider,
     ) -> Iterable[Request]:
         """
         Proceed response the results from the Spider.
@@ -80,7 +85,10 @@ class PepParseDownloaderMiddleware:
         return None
 
     def process_response(
-        self, request: Request, response: Response, spider: Spider,
+        self,
+        request: Request,
+        response: Response,
+        spider: Spider,
     ) -> Response:
         """
         Perform actions when response returned.
@@ -90,7 +98,10 @@ class PepParseDownloaderMiddleware:
         return response
 
     def process_exception(
-        self, request: Request, exception: Exception, spider: Spider,
+        self,
+        request: Request,
+        exception: Exception,
+        spider: Spider,
     ) -> None:
         """
         Define exception handling.

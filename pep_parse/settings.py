@@ -2,7 +2,8 @@
 import os.path
 from pathlib import Path
 
-from pep_parse.constants import BASE_DIR, PEP_LIST_FILENAME, RESULTS_DIR, OUTPUT_FILE_FORMAT
+from pep_parse.constants import (BASE_DIR, OUTPUT_FILE_FORMAT,
+                                 PEP_LIST_FILENAME, RESULTS_DIR)
 
 Path.joinpath(BASE_DIR, RESULTS_DIR).mkdir(exist_ok=True)
 

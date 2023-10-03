@@ -31,7 +31,10 @@ class PepSpider(scrapy.Spider):
             )
 
     def parse_pep(
-        self, response: Response, number: str, name: str,
+        self,
+        response: Response,
+        number: str,
+        name: str,
     ) -> Generator[PepParseItem, Any, None]:
         """Perform parsing through followed url."""
         data = {

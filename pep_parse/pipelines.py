@@ -32,7 +32,9 @@ class PepParsePipeline:
             PEP_SUMMARY_RESULT_PATH,
         )
 
-        with open(pep_summary_filepath, mode="w", encoding=FEED_EXPORT_ENCODING) as file:
+        with open(
+            pep_summary_filepath, mode="w", encoding=FEED_EXPORT_ENCODING,
+        ) as file:
             file.write("Статус,Количество\n")
             file.writelines(
                 [
